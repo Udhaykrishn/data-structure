@@ -36,6 +36,19 @@ class LinkedList {
         this.increase();
     }
 
+    findMidElement(){
+        let slow = this.head;
+        let fast = this.head;
+
+        while(fast.next && fast.next.next){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+
+        console.log(`mid elem is: ${slow.data}`)
+    }
+
     delete(target) {
 
         if (!this.head) return;
@@ -84,3 +97,5 @@ LL.append(30)
 LL.delete(30)
 
 LL.display()
+
+LL.findMidElement()
