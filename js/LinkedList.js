@@ -140,6 +140,20 @@ class LinkedList {
         }
     }
 
+    reverse(){
+        let current = this.head;
+        let prev = null;
+        
+        while(current){
+            const next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next;
+        }
+
+        this.head = prev;
+    }
+
     deleteLastElement() {
         let current = this.head;
 
@@ -180,8 +194,12 @@ LL.append(20)
 LL.append(30)
 LL.append(40)
 
-LL.indexInsertBefore(1,100)
-LL.indexInsertAfter(1,200)
+// LL.indexInsertBefore(1,100)
+// LL.indexInsertAfter(1,200)
+
+LL.display()
+
+LL.reverse()
 
 LL.display()
 
