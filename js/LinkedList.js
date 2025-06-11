@@ -202,6 +202,7 @@ class LinkedList {
         }
 
         slow.next = slow.next.next
+        this.decrease();
     }
 
     display() {
