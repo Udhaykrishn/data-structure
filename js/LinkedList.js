@@ -37,7 +37,7 @@ class LinkedList {
     }
 
     findMidElement() {
-        if(this.isEmpty()) return null;
+        if (this.isEmpty()) return null;
 
         let slow = this.head;
         let fast = this.head;
@@ -73,18 +73,18 @@ class LinkedList {
         }
     }
 
-    isEmpty(){
+    isEmpty() {
         return this.head === null;
     }
 
-    indexInsertAfter(index,data){
+    indexInsertAfter(index, data) {
         const node = new Node(data)
 
-        if(this.isEmpty()) return null;
+        if (this.isEmpty()) return null;
 
         let count = 0;
 
-        if(this.size < index || index <= 0){
+        if (this.size < index || index <= 0) {
             console.log("given index is out of range")
             return;
         }
@@ -92,11 +92,11 @@ class LinkedList {
         let current = this.head;
 
 
-        while(count < index-1 && current){
+        while (count < index - 1 && current) {
             count++;
             current = current.next;
         }
-        if(current){
+        if (current) {
             node.next = current.next;
             current.next = node;
             this.increase();;
@@ -104,47 +104,47 @@ class LinkedList {
     }
 
 
-    indexInsertBefore(index,data){
+    indexInsertBefore(index, data) {
         const node = new Node(data)
 
-        if(this.isEmpty()) return null;
+        if (this.isEmpty()) return null;
 
         let current = this.head;
 
-        if(index === 1){
+        if (index === 1) {
             node.next = this.head;
             this.head = node;
             this.increase();
             return
-        }        
+        }
 
         let count = 0;
 
-        if(this.size < index || index <= 0 ){
+        if (this.size < index || index <= 0) {
             console.log("out of range index entered")
             return null;
         }
 
         let prev = null;
 
-        while(count < index-1 &&  current){
+        while (count < index - 1 && current) {
             count++;
             prev = current;
             current = current.next;
         }
 
-        if(prev){
+        if (prev) {
             node.next = current;
             prev.next = node;
             this.increase();
         }
     }
 
-    reverse(){
+    reverse() {
         let current = this.head;
         let prev = null;
-        
-        while(current){
+
+        while (current) {
             const next = current.next;
             current.next = prev;
             prev = current;
@@ -157,7 +157,7 @@ class LinkedList {
     deleteLastElement() {
         let current = this.head;
 
-        if(this.size === 1){
+        if (this.size === 1) {
             this.head = null;
             this.decrease();
             return
@@ -172,6 +172,36 @@ class LinkedList {
             this.decrease()
         }
 
+    }
+
+
+    removeNthEndNode(n) {
+        let fast = this.head;
+        let slow = this.head;
+
+        if(this.size < n || n <= 0){
+            console.log("Nth value is out of range ")
+            return
+        }
+
+
+        for (let i = 1; i <=n; i++) {
+            if(fast !== null){
+                fast = fast.next;
+            }
+        }
+
+        if(!fast){
+            this.head = this.head.next;
+            return;
+        }
+
+        while(fast.next){
+            fast = fast.next;
+            slow = slow.next;
+        }
+
+        slow.next = slow.next.next
     }
 
     display() {
@@ -197,10 +227,12 @@ LL.append(40)
 // LL.indexInsertBefore(1,100)
 // LL.indexInsertAfter(1,200)
 
-LL.display()
-
-LL.reverse()
+LL.removeNthEndNode(4)
 
 LL.display()
+
+// LL.reverse()
+
+// LL.display()
 
 // LL.findMidElement()
