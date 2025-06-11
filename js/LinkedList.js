@@ -36,11 +36,11 @@ class LinkedList {
         this.increase();
     }
 
-    findMidElement(){
+    findMidElement() {
         let slow = this.head;
         let fast = this.head;
 
-        while(fast.next && fast.next.next){
+        while (fast.next && fast.next.next) {
             slow = slow.next;
             fast = fast.next.next;
         }
@@ -73,6 +73,26 @@ class LinkedList {
     }
 
 
+    deleteLastElement() {
+        let current = this.head;
+
+        if(this.size === 1){
+            this.head = null;
+            this.decrease();
+            return
+        }
+
+        while (current && current.next && current.next.next) {
+            current = current.next;
+        }
+
+        if (current) {
+            current.next = null;
+            this.decrease()
+        }
+
+    }
+
     display() {
         let current = this.head;
 
@@ -95,6 +115,8 @@ LL.append("H")
 LL.append(30)
 
 LL.delete(30)
+
+LL.deleteLastElement()
 
 LL.display()
 
