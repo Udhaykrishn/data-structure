@@ -37,6 +37,8 @@ class LinkedList {
     }
 
     findMidElement() {
+        if(this.isEmpty()) return null;
+
         let slow = this.head;
         let fast = this.head;
 
@@ -50,7 +52,6 @@ class LinkedList {
     }
 
     delete(target) {
-
         if (!this.head) return;
 
         let current = this.head;
@@ -72,6 +73,34 @@ class LinkedList {
         }
     }
 
+    isEmpty(){
+        return this.head === null;
+    }
+
+    indexInsertAfter(index,data){
+        const node = new Node(data)
+
+        if(this.isEmpty()) return null;
+        
+        let count = 0;
+
+        if(this.size < index || index <= 0){
+            console.log("given index is out of range")
+            return;
+        }
+
+        let current = this.head;
+
+
+        while(count < index-1 && current){
+            count++;
+            current = current.next;
+        }
+        if(current){
+            node.next = current.next;
+            current.next = node;
+        }
+    }
 
     deleteLastElement() {
         let current = this.head;
@@ -108,15 +137,7 @@ class LinkedList {
 
 const LL = new LinkedList();
 
-
-LL.append(10)
-LL.append(20)
-LL.append("H")
-LL.append(30)
-
-LL.delete(30)
-
-LL.deleteLastElement()
+LL.indexInsertAfter(1,100)
 
 LL.display()
 
