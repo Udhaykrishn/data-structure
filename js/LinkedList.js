@@ -81,7 +81,7 @@ class LinkedList {
         const node = new Node(data)
 
         if(this.isEmpty()) return null;
-        
+
         let count = 0;
 
         if(this.size < index || index <= 0){
@@ -99,6 +99,44 @@ class LinkedList {
         if(current){
             node.next = current.next;
             current.next = node;
+            this.increase();;
+        }
+    }
+
+
+    indexInsertBefore(index,data){
+        const node = new Node(data)
+
+        if(this.isEmpty()) return null;
+
+        let current = this.head;
+
+        if(index === 1){
+            node.next = this.head;
+            this.head = node;
+            this.increase();
+            return
+        }        
+
+        let count = 0;
+
+        if(this.size < index || index <= 0 ){
+            console.log("out of range index entered")
+            return null;
+        }
+
+        let prev = null;
+
+        while(count < index-1 &&  current){
+            count++;
+            prev = current;
+            current = current.next;
+        }
+
+        if(prev){
+            node.next = current;
+            prev.next = node;
+            this.increase();
         }
     }
 
@@ -137,8 +175,14 @@ class LinkedList {
 
 const LL = new LinkedList();
 
-LL.indexInsertAfter(1,100)
+LL.append(10)
+LL.append(20)
+LL.append(30)
+LL.append(40)
+
+LL.indexInsertBefore(1,100)
+LL.indexInsertAfter(1,200)
 
 LL.display()
 
-LL.findMidElement()
+// LL.findMidElement()
