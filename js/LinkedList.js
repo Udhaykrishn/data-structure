@@ -36,6 +36,27 @@ class LinkedList {
         this.increase();
     }
 
+    delete(target) {
+        let current = this.head;
+
+        if (this.head.data === target) {
+            this.head = this.head.next;
+            return null;
+        }
+
+        let prev = null;
+        while (current.next && current.data !== target) {
+            prev = current;
+            current = current.next;
+        }
+
+        if(current.data === target){
+            prev.next = current.next;
+            this.decrease();
+        }
+
+    }
+
 
     display() {
         let current = this.head;
