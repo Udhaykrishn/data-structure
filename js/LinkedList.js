@@ -193,6 +193,7 @@ class LinkedList {
 
         if(!fast){
             this.head = this.head.next;
+            this.decrease();
             return;
         }
 
