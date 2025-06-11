@@ -37,24 +37,26 @@ class LinkedList {
     }
 
     delete(target) {
+
+        if (!this.head) return;
+
         let current = this.head;
 
-        if (this.head.data === target) {
-            this.head = this.head.next;
+        if (current.data === target) {
+            this.head = current.next;
             return null;
         }
 
         let prev = null;
-        while (current.next && current.data !== target) {
+        while (current && current.data !== target) {
             prev = current;
             current = current.next;
         }
 
-        if(current.data === target){
+        if (current) {
             prev.next = current.next;
             this.decrease();
         }
-
     }
 
 
@@ -78,5 +80,7 @@ LL.append(10)
 LL.append(20)
 LL.append("H")
 LL.append(30)
+
+LL.delete(30)
 
 LL.display()
