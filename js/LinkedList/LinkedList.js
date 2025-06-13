@@ -51,6 +51,28 @@ class LinkedList {
         console.log(`mid elem is: ${slow.data}`)
     }
 
+    deleteMidElement(){
+        if(!this.head) return
+
+        if(!this.head.next){
+            this.head = null;
+            return 
+        }
+
+        let slow = this.head;
+        let fast = this.head;
+
+        let prev = null;
+
+        while(fast&& fast.next){
+            prev = slow;
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+       prev.next = slow.next;
+    }
+
     delete(target) {
         if (!this.head) return;
 
@@ -225,11 +247,16 @@ LL.append(10)
 LL.append(20)
 LL.append(30)
 LL.append(40)
+LL.append(50)
 
 // LL.indexInsertBefore(1,100)
 // LL.indexInsertAfter(1,200)
 
-LL.removeNthEndNode(4)
+
+LL.deleteMidElement()
+LL.deleteMidElement()
+LL.deleteMidElement()
+LL.deleteMidElement()
 
 LL.display()
 
