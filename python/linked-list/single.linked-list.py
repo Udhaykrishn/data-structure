@@ -86,6 +86,21 @@ class LinkedList:
         
         prev.next = None   
         
+        
+    def reverse(self):
+        if self.isEmpty(): return
+        
+        prev = None
+        current = self.head
+        
+        while current:
+            next = current.next
+            current.next = prev
+            prev = current
+            current = next
+            
+        self.head = prev
+        
             
     def delete(self,data):
         
@@ -127,6 +142,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.deleteLastElement()
+linked.reverse()
 
 linked.display()
