@@ -45,6 +45,29 @@ class LinkedList:
             fast = fast.next.next
             
         print(f"Mid elemen is: {slow.data}")
+        
+   
+    def deleteMidElement(self):
+        
+        if self.isEmpty():return 
+        
+        slow = self.head
+        fast = self.head
+        
+        if not self.head.next:
+                self.head = None
+                return
+        
+        prev = None
+        
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+            
+        prev.next = slow.next        
+        
+        
             
     def delete(self,data):
         
@@ -86,6 +109,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.findMidElement()
+linked.deleteMidElement()
 
 linked.display()
