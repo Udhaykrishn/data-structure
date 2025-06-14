@@ -33,6 +33,19 @@ class LinkedList:
             node.next = self.head
             self.head = node
             
+    def findMidElement(self):
+        if self.isEmpty(): return 
+        
+        slow = self.head
+        fast = self.head
+        
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        print(f"Mid elemen is: {slow.data}")
+            
     def delete(self,data):
         
         if self.isEmpty():
@@ -73,6 +86,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.delete(10)
+linked.findMidElement()
 
 linked.display()
