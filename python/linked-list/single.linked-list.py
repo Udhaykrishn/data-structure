@@ -32,6 +32,28 @@ class LinkedList:
         else:
             node.next = self.head
             self.head = node
+            
+    def delete(self,data):
+        
+        if self.isEmpty():
+            return
+        
+        if(self.head.data is data):
+            self.head = self.head.next
+            return
+        
+        current = self.head
+        prev = None
+        
+        while current and current.data is not data:
+            prev = current
+            current = current.next
+            
+        if current:
+            prev.next = current.next
+            
+              
+        
         
             
     def display(self):
@@ -50,5 +72,7 @@ linked.append(30)
 linked.append(40)
 
 linked.prepend(100)
+
+linked.delete(10)
 
 linked.display()
