@@ -25,6 +25,15 @@ class LinkedList:
             
             current.next = node
             
+    def prepend(self,data):
+        node = Node(data)
+        if self.isEmpty():
+            self.head = node
+        else:
+            node.next = self.head
+            self.head = node
+        
+            
     def display(self):
         current = self.head
         
@@ -39,5 +48,7 @@ linked.append(10)
 linked.append(20)
 linked.append(30)
 linked.append(40)
+
+linked.prepend(100)
 
 linked.display()
