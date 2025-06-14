@@ -65,8 +65,26 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
             
-        prev.next = slow.next        
+        prev.next = slow.next     
         
+    
+    def deleteLastElement(self):
+        
+        if self.isEmpty():return 
+        
+        if not self.head.next:
+            self.head = None
+            return 
+        
+        current = self.head
+        
+        prev = None
+        
+        while current.next:
+            prev = current
+            current = current.next
+        
+        prev.next = None   
         
             
     def delete(self,data):
@@ -109,6 +127,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.deleteMidElement()
+linked.deleteLastElement()
 
 linked.display()
