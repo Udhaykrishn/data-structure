@@ -144,7 +144,30 @@ class LinkedList:
         
         self.head = self.head.next
         self.decrease()
+        
+        
+    def deleteElementInEnd(self,index):
+        if self.isEmpty(): return
+        
+        if self.size < index or index <= 0:
+            print("Index is not or range")
+            return
+
+        slow,fast = self.head,self.head
+
+        for _ in range(index):
+            fast = fast.next
+                           
+        if not fast:
+            self.head = self.head.next
+            self.decrease()
+            return
             
+        while fast.next:
+            fast,slow = fast.next,slow.next
+            
+        slow.next = slow.next.next
+        self.decrease()
               
         
     def deleteWithIndex(self,index):
@@ -187,6 +210,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.deleteWithIndex(1)
+linked.deleteElementInEnd(1)
 
 linked.display()
