@@ -7,10 +7,17 @@ class Node:
 class LinkedList:
     def __init__(self):
         self.head = None
+        self.size = 0
         
         
     def isEmpty(self):
         return self.head is None
+    
+    def increase(self):
+        self.size += 1
+        
+    def decrease(self):
+        self.size -= 1
         
     def append(self,data):
         node = Node(data)
@@ -25,6 +32,8 @@ class LinkedList:
             
             current.next = node
             
+        self.increase()
+            
     def prepend(self,data):
         node = Node(data)
         if self.isEmpty():
@@ -32,7 +41,9 @@ class LinkedList:
         else:
             node.next = self.head
             self.head = node
-            
+        
+        self.increase()
+        
     def findMidElement(self):
         if self.isEmpty(): return 
         
@@ -56,6 +67,7 @@ class LinkedList:
         
         if not self.head.next:
                 self.head = None
+                self.decrease()
                 return
         
         prev = None
@@ -65,7 +77,8 @@ class LinkedList:
             slow = slow.next
             fast = fast.next.next
             
-        prev.next = slow.next     
+        prev.next = slow.next  
+        self.decrease()   
         
     
     def deleteLastElement(self):
@@ -74,6 +87,7 @@ class LinkedList:
         
         if not self.head.next:
             self.head = None
+            self.decrease()
             return 
         
         current = self.head
@@ -85,6 +99,7 @@ class LinkedList:
             current = current.next
         
         prev.next = None   
+        self.decrease()
         
         
     def reverse(self):
@@ -109,6 +124,7 @@ class LinkedList:
         
         if(self.head.data is data):
             self.head = self.head.next
+            self.decrease()
             return
         
         current = self.head
@@ -120,10 +136,39 @@ class LinkedList:
             
         if current:
             prev.next = current.next
+            self.decrease()
+            
+            
+    def deleteFirstElement(self):
+        if self.isEmpty(): return
+        
+        self.head = self.head.next
+        self.decrease()
             
               
         
+    def deleteWithIndex(self,index):
+        if not self.head: return
         
+        if self.size < index or index <= 0:
+            print("Index out or range")
+            return
+        
+        if index == 1:
+            self.deleteFirstElement()
+            return
+        
+        count = 0
+        current = self.head
+        prev = None
+        
+        while count < index-1 and current:
+            count += 1
+            prev = current
+            current = current.next
+            
+        if current:
+            prev.next = current.next  
             
     def display(self):
         current = self.head
@@ -142,6 +187,6 @@ linked.append(40)
 
 linked.prepend(100)
 
-linked.reverse()
+linked.deleteWithIndex(1)
 
 linked.display()
