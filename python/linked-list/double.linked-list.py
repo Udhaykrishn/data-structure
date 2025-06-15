@@ -60,6 +60,37 @@ class DL:
         
         self.increase()
         
+    def delete(self,data):
+        if not self.head:
+            return 
+        
+        if self.head.data == data:
+            if self.head.next:
+                self.head.next.prev = None
+                self.head =  self.head.next
+            else:
+                self.head = None
+                self.tail = None
+            self.decrease()
+            return 
+        
+        current = self.head
+        prev = None
+        
+        while current and current.data != data:
+            prev = current
+            current = current.next
+            
+        if current.next:
+            prev.next = current.next
+            current.next.prev = prev
+        else:
+            prev.next = None
+            self.tail = prev
+            
+            
+        self.decrease()
+            
         
     def reverse(self):
         current = self.tail
@@ -85,8 +116,8 @@ DL.append(20)
 DL.append(30)
 DL.append(40)
 
-DL.reverse()
+DL.delete(10)
 
-# DL.display()
+DL.display()
         
             
