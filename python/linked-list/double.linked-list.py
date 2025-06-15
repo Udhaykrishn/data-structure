@@ -34,7 +34,7 @@ class DL:
                 current.next = node
                 self.tail = node
                 
-        self.increase
+        self.increase()
         
     def prepend(self,data):
         node = Node(data)
@@ -90,8 +90,44 @@ class DL:
             
             
         self.decrease()
-            
         
+        
+    def insertWithIndex(self,index,data):
+        node = Node(data)
+        
+        if self.size < index or index <= 0:
+            print(f"Index is out of range, 1 to {self.size} is possible")
+            return
+        
+        if not self.head and index == 1:
+            self.head,self.tail = node
+            self.increase()
+            return
+        
+        
+        current = self.head
+        
+        count = 0
+        
+        while count < index-1 and current:
+            count += 1
+            current = current.next
+
+        
+        if not current.next:
+            node.prev = current
+            current.next = node
+            self.tail = node
+        else:
+            node.prev = current
+            node.next = current.next
+            current.next.prev = node
+            current.next = node
+            
+            
+        self.increase()
+      
+      
     def reverse(self):
         current = self.tail
         
@@ -116,8 +152,10 @@ DL.append(20)
 DL.append(30)
 DL.append(40)
 
-DL.delete(10)
+DL.insertWithIndex(3,100)
 
-DL.display()
+DL.reverse()
+
+# DL.display()
         
             
