@@ -61,6 +61,14 @@ class DL:
         self.increase()
         
         
+    def reverse(self):
+        current = self.tail
+        
+        while current:
+            print(current.data)
+            current = current.prev
+        
+        
     def display(self):
         current = self.head
         
@@ -77,8 +85,8 @@ DL.append(20)
 DL.append(30)
 DL.append(40)
 
-DL.addElementInEnd(100)
+DL.reverse()
 
-DL.display()
+# DL.display()
         
             
