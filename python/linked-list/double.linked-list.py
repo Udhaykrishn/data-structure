@@ -46,6 +46,20 @@ class DL:
             self.head.prev = node
             self.head = node
             
+        self.increase()
+            
+    def addElementInEnd(self,data):
+        node = Node(data)
+        
+        if not self.head:
+            self.head,self.tail = node,node
+        else:
+            node.prev = self.tail
+            self.tail.next = node
+            self.tail = node
+        
+        self.increase()
+        
         
     def display(self):
         current = self.head
@@ -62,6 +76,8 @@ DL.append(10)
 DL.append(20)
 DL.append(30)
 DL.append(40)
+
+DL.addElementInEnd(100)
 
 DL.display()
         
