@@ -1,15 +1,12 @@
 class Node:
     def __init__(self,data):
         self.data = data
-        self.next = None
-        self.prev = None
-        
+        self.next,self.prev = None,None
         
         
 class DL:
     def __init__(self):
-        self.head = None
-        self.tail = None
+        self.head,self.tail = None,None
         self.size = 0
         
     def isEmpty(self):
@@ -25,8 +22,7 @@ class DL:
         node = Node(data)
         
         if not self.head:
-            self.head = node
-            self.tail = node
+            self.head,self.tail = node,node
         else:
             current = self.head
             
@@ -44,8 +40,7 @@ class DL:
         node = Node(data)
         
         if not self.head:
-            self.head = node
-            self.tail = node
+            self.head,self.tail = node,node
         else:
             node.next = self.head
             self.head.prev = node
