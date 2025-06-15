@@ -48,7 +48,7 @@ class DL:
             
         self.increase()
             
-    def addElementInEnd(self,data):
+    def add_element_in_end(self,data):
         node = Node(data)
         
         if not self.head:
@@ -92,7 +92,7 @@ class DL:
         self.decrease()
         
         
-    def insertWithIndex(self,index,data):
+    def insert_with_index(self,index,data):
         node = Node(data)
         
         if self.size < index or index <= 0:
@@ -144,7 +144,7 @@ class DL:
             print(current.data)
             current = current.next
             
-    def findMidElement(self):
+    def find_mid_element(self):
         if not self.head:return
         
         fast,slow = self.head,self.head
@@ -156,7 +156,7 @@ class DL:
             
         print(f"mid element is :{slow.data}")
         
-    def deleteMidElement(self):
+    def delete_mid_element(self):
         if not self.head: return
         
         fast,slow = self.head,self.head
@@ -180,6 +180,8 @@ class DL:
         if prev:
             prev.next = slow.next
             slow.next.prev = prev
+            
+    
             
                 
             
