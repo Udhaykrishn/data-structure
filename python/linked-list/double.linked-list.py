@@ -144,6 +144,44 @@ class DL:
             print(current.data)
             current = current.next
             
+    def findMidElement(self):
+        if not self.head:return
+        
+        fast,slow = self.head,self.head
+        
+        
+        while fast and fast.next:
+            slow = slow.next
+            fast = fast.next.next
+            
+        print(f"mid element is :{slow.data}")
+        
+    def deleteMidElement(self):
+        if not self.head: return
+        
+        fast,slow = self.head,self.head
+
+        prev = None
+
+        while fast and fast.next:
+            prev = slow
+            slow = slow.next
+            fast = fast.next.next
+            
+        if not self.head.next:
+            self.head,self.tail = None,None
+            return
+       
+        if not slow.next:
+            self.head.next = None
+            self.tail = self.head
+            return
+
+        if prev:
+            prev.next = slow.next
+            slow.next.prev = prev
+            
+                
             
 DL = DL()
 
@@ -151,8 +189,9 @@ DL.append(10)
 DL.append(20)
 DL.append(30)
 DL.append(40)
+DL.append(50)
 
-DL.insertWithIndex(3,100)
+DL.deleteMidElement()
 
 DL.reverse()
 
