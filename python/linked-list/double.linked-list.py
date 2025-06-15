@@ -40,6 +40,17 @@ class DL:
                 
         self.increase
         
+    def prepend(self,data):
+        node = Node(data)
+        
+        if not self.head:
+            self.head = node
+            self.tail = node
+        else:
+            node.next = self.head
+            self.head.prev = node
+            self.head = node
+            
         
     def display(self):
         current = self.head
