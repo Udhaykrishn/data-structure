@@ -134,16 +134,48 @@ class DL:
         while current:
             print(current.data)
             current = current.prev
-        
-        
-    def display(self):
-        current = self.head
-        
-        
-        while current:
-            print(current.data)
-            current = current.next
             
+        print(f"size is: {self.size}")
+        
+    
+    def delete_element_with_end(self,index):
+        if not self.head:
+            print("no")
+            return 
+        
+        print(self.size + 1 < index or index <= 0)
+        
+        if self.size < index or index <= 0:
+            print(f"Index is out of range, 1 to {self.size} is possible")
+            return
+        
+        slow = self.head
+        fast = self.head
+        
+        
+        for _ in range(index):
+            if fast != None:
+                fast = fast.next
+            
+        
+        if not fast:
+            self.head = self.head.next
+            self.decrease()
+            return
+            
+        
+        while fast.next:
+            slow = slow.next
+            fast = fast.next  
+        
+        if not slow.next.next:
+            self.tail = slow
+        else:
+            slow.next.next.prev = slow
+            slow.next = slow.next.next
+        self.decrease()
+        
+        
     def find_mid_element(self):
         if not self.head:return
         
@@ -155,48 +187,28 @@ class DL:
             fast = fast.next.next
             
         print(f"mid element is :{slow.data}")
-        
-    def delete_mid_element(self):
-        if not self.head: return
-        
-        fast,slow = self.head,self.head
-
-        prev = None
-
-        while fast and fast.next:
-            prev = slow
-            slow = slow.next
-            fast = fast.next.next
-            
-        if not self.head.next:
-            self.head,self.tail = None,None
-            return
        
-        if not slow.next:
-            self.head.next = None
-            self.tail = self.head
-            return
-
-        if prev:
-            prev.next = slow.next
-            slow.next.prev = prev
-            
     
-            
-                
+    def display(self):
+        current = self.head
+     
+        while current:
+            print(current.data)
+            current = current.next
+        print(f"size is: {self.size}")  
             
 DL = DL()
 
 DL.append(10)
-DL.append(20)
-DL.append(30)
-DL.append(40)
-DL.append(50)
+# DL.append(20)
+# DL.append(30)
+# DL.append(40)
+# DL.append(50)
 
-DL.deleteMidElement()
+DL.delete_element_with_end(1)
+DL.display()
 
-DL.reverse()
+# DL.reverse()
 
-# DL.display()
         
             
