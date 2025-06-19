@@ -31,9 +31,17 @@ function remove(key){
     hashTable[index] = null;
 }
 
+function has(key){
+    const index = hash(key,size)
+    
+    return hashTable[index] !== null
+}
+
 set("name","uday")
 set("age",21)
 
+console.log(has("age"))
 remove("age")
+console.log(has("age"))
 
 console.log(get("name"),get("age"))
