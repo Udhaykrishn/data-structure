@@ -15,3 +15,8 @@ const size = 10;
 const hashTable = new Array(size).fill(null)
 
 
+function set(key,value){
+    const index = hash(key,size)
+    hashTable[index] = value
+}
+
