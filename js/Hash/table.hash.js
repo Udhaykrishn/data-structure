@@ -20,3 +20,13 @@ function set(key,value){
     hashTable[index] = value
 }
 
+function get(key){
+    const index = hash(key,size)
+
+    return hashTable[index]
+}
+
+set("name","uday")
+set("age",21)
+
+console.log(get("name"),get("age"))
