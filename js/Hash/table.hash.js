@@ -26,7 +26,14 @@ function get(key){
     return hashTable[index]
 }
 
+function remove(key){
+    const index = hash(key,size)
+    hashTable[index] = null;
+}
+
 set("name","uday")
 set("age",21)
+
+remove("age")
 
 console.log(get("name"),get("age"))
