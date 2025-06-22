@@ -18,3 +18,9 @@ class Hash:
     def get(self,key):
         index = self.hash(key)
         return self.table[index]
+      
+    def remove(self,key):
+        index = self.hash(key)
+        self.table[index] = None
+        
+        
