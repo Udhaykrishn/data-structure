@@ -20,6 +20,14 @@ class Stack{
         return this.top === null;
     }
 
+    peek(){
+        if(this.empty()) return null;
+
+        const data = this.top.data;
+        console.log("peek data: ",data)
+        return data;
+    }
+
     display(){
         let current = this.top;
 
