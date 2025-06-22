@@ -51,6 +51,24 @@ class Stack{
         this.top = prev;
     }
 
+    findMid(){
+        if(this.empty){
+            return null;
+        }
+
+
+        let slow = this.top;
+        let fast = this.top;
+
+        while(fast && fast.next){
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+
+        console.log("mid is: ",slow.data)
+    }
+
+
     display(){
         let current = this.top;
 
