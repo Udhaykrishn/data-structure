@@ -52,7 +52,7 @@ class Stack{
     }
 
     findMid(){
-        if(this.empty){
+        if(this.empty()){
             return null;
         }
 
@@ -107,5 +107,7 @@ const stack = new Stack()
 stack.append(10)
 stack.append(20)
 stack.append(30)
+
+stack.findMid()
 
 stack.display()
