@@ -10,3 +10,8 @@ class Hash:
             hash_value += ord(key[i])
             
         return hash_value % self.size
+    
+    def set(self,key,value):
+        index = self.hash(key)
+        self.table[index] = value
+         
