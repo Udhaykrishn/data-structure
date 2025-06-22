@@ -33,4 +33,22 @@ class HashTable{
 
         bucket.push([key,value])
     }
+
+    get(key){
+        const index = this._hash(key)
+        const bucket = this.tabe[index]
+
+        for(let i = 0; i<bucket.length; i++){
+            if(bucket[i][0] === key)
+                return bucket[i][1]
+        }
+
+        return null; // not found
+    }
 }
+
+const ht = new HashTable()
+
+ht.set("name","uday")
+
+console.log(ht.get("name"))
