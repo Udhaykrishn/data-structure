@@ -15,3 +15,6 @@ class Hash:
         index = self.hash(key)
         self.table[index] = value
          
+    def get(self,key):
+        index = self.hash(key)
+        return self.table[index]
