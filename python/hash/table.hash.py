@@ -3,4 +3,10 @@ class Hash:
         self.size = size
         self.table = [None for _ in range(size)]
         
+    def hash(self,key):
+        hash_value = 0
         
+        for i in range(len(key)):
+            hash_value += ord(key[i])
+            
+        return hash_value % self.size
