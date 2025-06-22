@@ -24,3 +24,12 @@ class Hash:
         self.table[index] = None
         
         
+ht = Hash()
+
+ht.set("name","uday")
+
+print(ht.get("name"))
+
+ht.remove("name")
+
+print(ht.get("name"))
