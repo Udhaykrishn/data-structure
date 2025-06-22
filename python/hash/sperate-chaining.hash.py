@@ -21,3 +21,14 @@ class HashTable:
                 break
             
         bucket.append([key,value])
+        
+    def get(self,key):
+        index = self.hash(key)
+        bucket = self.table[index]
+        
+        
+        for i in range(len(key)):
+            if bucket[i][0] == key:
+                return bucket[i][1] 
+            
+        return None
