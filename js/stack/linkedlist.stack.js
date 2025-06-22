@@ -28,6 +28,14 @@ class Stack{
         return data;
     }
 
+    pop(){
+        if(this.empty()) return null;
+
+        const data = this.top.data;
+        this.top = this.top.next;
+        return data;
+    }
+
     display(){
         let current = this.top;
 
