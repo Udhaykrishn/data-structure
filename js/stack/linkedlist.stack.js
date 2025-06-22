@@ -36,6 +36,21 @@ class Stack{
         return data;
     }
 
+    reverse(){
+        if(this.empty()) return null;
+
+        let current = this.top;
+        let prev = null;
+
+        while(current){
+            const next = current.next;
+            current.next = prev;
+            prev = current;
+            current = next
+        }
+        this.top = prev;
+    }
+
     display(){
         let current = this.top;
 
