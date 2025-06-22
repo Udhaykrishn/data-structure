@@ -19,4 +19,18 @@ class HashTable{
 
         return hash % this.size
     }
+
+    set(key,value){
+        const index = this._hash(key)
+        const bucket = this.tabe[index]
+
+
+        for(let i = 0; i < bucket.length; i++){
+            if(bucket[i][0] === key)
+                bucket[i][1] = value;
+                break;
+        }
+
+        bucket.push([key,value])
+    }
 }
