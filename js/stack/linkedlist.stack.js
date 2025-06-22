@@ -15,4 +15,23 @@ class Stack{
         node.next = this.top;
         this.top = node
     }
+
+    display(){
+        let current = this.top;
+
+        while (current){
+            console.log(current.data)
+            current = current.next;
+        }
+    }
 }
+
+
+
+const stack = new Stack()
+
+stack.append(10)
+stack.append(20)
+stack.append(30)
+
+stack.display()
