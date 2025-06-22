@@ -16,6 +16,10 @@ class Stack{
         this.top = node
     }
 
+    empty(){
+        return this.top === null;
+    }
+
     display(){
         let current = this.top;
 
