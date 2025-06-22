@@ -68,6 +68,27 @@ class Stack{
         console.log("mid is: ",slow.data)
     }
 
+    delete(data){
+        if(this.empty()){
+            return null;
+        }
+
+        if(this.top.data === data){
+            this.top = this.top.next
+            return 
+        }
+
+
+        let current = this.top;
+        let prev = null;
+
+        while(current && current.data !== data){
+            prev = current
+            current = current.next
+        }
+        prev.next = current.next;
+    }
+
 
     display(){
         let current = this.top;
