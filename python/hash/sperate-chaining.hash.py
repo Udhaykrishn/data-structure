@@ -45,4 +45,13 @@ class HashTable:
         return None
     
     
-    
+ht = HashTable()
+
+
+ht.set("name","uday")
+
+print(ht.get("name"))
+
+ht.remove("name")
+
+print(ht.get("name"))
