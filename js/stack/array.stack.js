@@ -23,4 +23,26 @@ class Stack{
             return null;
         return this.stack[this.stack.length - 1]
     }
+
+    display(){
+        let temp = new Stack();
+
+        while(!this.empty()){
+            let data = this.pop()
+            console.log(data)
+            temp.push(data)
+        }
+
+        while(!temp.empty()){
+            this.push(temp.pop())
+        }
+    }
 }
+
+const stack = new Stack()
+
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+stack.display()
