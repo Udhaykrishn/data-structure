@@ -11,7 +11,7 @@ class Stack{
         this.size = 0;
     }
 
-    append(data){
+    push(data){
         const node = new Node(data)
         node.next = this.top;
         this.top = node
