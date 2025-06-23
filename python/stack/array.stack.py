@@ -14,4 +14,28 @@ class Stack:
     def pop(self):
         return None if self.empty() else self.stack.pop()
     
-    
+    def display(self):
+        temp = Stack()
+        
+        while not self.empty():
+            data = self.pop()
+            print(data)
+            temp.push(data)
+        
+        while not temp.empty():
+            self.push(temp.pop())
+            
+            
+stack = Stack()
+            
+stack.push(10)
+stack.push(20)
+stack.push(30)
+
+stack.display()
+
+print("\npeek: ",stack.peek(),"\n")
+
+stack.pop()
+
+stack.display()
