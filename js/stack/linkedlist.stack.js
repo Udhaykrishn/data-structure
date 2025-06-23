@@ -8,12 +8,14 @@ class Node{
 class Stack{
     constructor(){
         this.top = null;
+        this.size = 0;
     }
 
     append(data){
         const node = new Node(data)
         node.next = this.top;
         this.top = node
+        this.size++
     }
 
     empty(){
@@ -33,6 +35,7 @@ class Stack{
 
         const data = this.top.data;
         this.top = this.top.next;
+        this.size--;
         return data;
     }
 
@@ -96,6 +99,7 @@ class Stack{
             console.log(current.data)
             current = current.next;
         }
+        console.log("size: ",this.size)
     }
 }
 
