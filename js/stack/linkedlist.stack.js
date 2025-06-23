@@ -26,7 +26,7 @@ class Stack{
         if(this.empty()) return null;
 
         const data = this.top.data;
-        console.log("peek data: ",data)
+        // console.log("peek data: ",data)
         return data;
     }
 
@@ -59,16 +59,25 @@ class Stack{
             return null;
         }
 
+        let n = this.size;
+        let mid = Math.floor(n / 2)
 
-        let slow = this.top;
-        let fast = this.top;
+        let temp = new Stack()
 
-        while(fast && fast.next){
-            slow = slow.next;
-            fast = fast.next.next;
+        let count = 0;
+
+        while(!this.empty() && count <= mid){
+            temp.push(this.pop())
+            count++
         }
 
-        console.log("mid is: ",slow.data)
+        const data = temp.peek()
+
+        while(!temp.empty()){
+            this.push(temp.pop())
+        }
+
+        console.log("mid is: ",data)
     }
 
     delete(data){
@@ -77,7 +86,7 @@ class Stack{
         while(!this.empty()){
             let last = this.pop();
             if (last === data) break
-            temp.append(last)
+            temp.push(last)
         }
 
         while(true){
@@ -86,7 +95,7 @@ class Stack{
             if(!current){
                 break
             }else{
-                this.append(current)
+                this.push(current)
             }
         }
     }
@@ -107,10 +116,12 @@ class Stack{
 
 const stack = new Stack()
 
-stack.append(10)
-stack.append(20)
-stack.append(30)
+stack.push(10)
+stack.push(20)
+stack.push(30)
+stack.push(40)
+stack.push(50)
 
-stack.delete(30)
+stack.findMid()
 
 stack.display()
