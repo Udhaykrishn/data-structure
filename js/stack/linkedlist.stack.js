@@ -69,24 +69,23 @@ class Stack{
     }
 
     delete(data){
-        if(this.empty()){
-            return null;
+        let temp = new Stack();
+
+        while(!this.empty()){
+            let last = this.pop();
+            if (last === data) break
+            temp.append(last)
         }
 
-        if(this.top.data === data){
-            this.top = this.top.next
-            return 
+        while(true){
+            let current = temp.pop()
+
+            if(!current){
+                break
+            }else{
+                this.append(current)
+            }
         }
-
-
-        let current = this.top;
-        let prev = null;
-
-        while(current && current.data !== data){
-            prev = current
-            current = current.next
-        }
-        prev.next = current.next;
     }
 
 
@@ -108,6 +107,6 @@ stack.append(10)
 stack.append(20)
 stack.append(30)
 
-stack.findMid()
+stack.delete(30)
 
 stack.display()
