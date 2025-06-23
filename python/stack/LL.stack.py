@@ -3,6 +3,15 @@ class Node:
         self.data = data
         self.next = None
         
+class Stack:
+    def __init__(self):
+        self.top = None
+        
+    def push(self,data):
+        node = Node(data)
+        node.next = self.top
+        self.top = node
+        
       
     
 # stack = Stack()
