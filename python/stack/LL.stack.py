@@ -19,6 +19,9 @@ class Stack:
         current_data = self.top.data
         self.top = self.top.next
         return current_data
+    
+    def peek(self):
+        return None if self.empty() else self.top.data
       
     
 # stack = Stack()
