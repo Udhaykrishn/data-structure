@@ -16,6 +16,9 @@ class Stack:
         return self.top is None
         
     def pop(self):
+        if self.empty():
+            return None
+        
         current_data = self.top.data
         self.top = self.top.next
         return current_data
