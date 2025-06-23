@@ -7,3 +7,8 @@ class Stack:
         
     def empty(self):
         return len(self.stack) == 0
+    
+    def peek(self):
+        return None if self.empty() else self.stack[len(self.stack) - 1]
+    
+    
