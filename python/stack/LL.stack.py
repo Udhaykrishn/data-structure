@@ -15,6 +15,10 @@ class Stack:
     def empty(self):
         return self.top is None
         
+    def pop(self):
+        current_data = self.top.data
+        self.top = self.top.next
+        return current_data
       
     
 # stack = Stack()
