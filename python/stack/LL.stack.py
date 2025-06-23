@@ -27,16 +27,16 @@ class Stack:
         return None if self.empty() else self.top.data
       
     
-# stack = Stack()
+stack = Stack()
 
 
-# stack.push(10)
-# stack.push(20)
-# stack.push(30)
+stack.push(10)
+stack.push(20)
+stack.push(30)
 
-# stack.display()
+stack.display()
 
-# print("\npeek: ",stack.peek(),"\n")
+print("\npeek: ",stack.peek(),"\n")
 
 stack.pop()
 
