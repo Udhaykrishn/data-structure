@@ -12,6 +12,9 @@ class Stack:
         node.next = self.top
         self.top = node
         
+    def empty(self):
+        return self.top is None
+        
       
     
 # stack = Stack()
