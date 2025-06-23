@@ -8,6 +8,10 @@ class Stack{
         this.stack.push(data)
     }
 
+    empty(){
+        return this.stack.length === 0
+    }
+
     pop(){
         return  this.stack.pop()
     }
