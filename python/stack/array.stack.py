@@ -11,4 +11,7 @@ class Stack:
     def peek(self):
         return None if self.empty() else self.stack[len(self.stack) - 1]
     
+    def pop(self):
+        return None if self.empty() else self.stack.pop()
+    
     
