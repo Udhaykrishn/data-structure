@@ -96,7 +96,7 @@ class Stack{
                 break
             }else{
                 this.push(current)
-            }
+            }   
         }
     }
 
