@@ -61,3 +61,15 @@ class Tree{
         }
     }
 }
+
+const tree = new Tree();
+
+tree.insert(10)
+tree.insert(4)
+tree.insert(20)
+tree.insert(15)
+tree.insert(25)
+tree.insert(8)
+
+
+tree.bfs() // 10 4 20 8 15 25
