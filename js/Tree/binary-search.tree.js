@@ -40,4 +40,24 @@ class Tree{
             }
         }
     }
+
+
+    bfs(){
+        const queue = [];
+        queue.push(this.root);
+
+        while(queue.length){
+            const node = queue.shift();
+            console.log(node.data)
+
+
+            if(node.left){
+                queue.push(node.left);
+            }
+
+            if(node.right){
+                queue.push(node.right);
+            }
+        }
+    }
 }
