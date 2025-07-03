@@ -70,6 +70,26 @@ class Tree{
     }
 
 
+    isBalanced(root=this.root){
+        function check(node){
+            if(!node){
+                return -1;
+            }
+
+            const left = check(node.left);
+            if(left === -1) return -1
+            const right = check(node.right)
+            if(right === -1) return -1
+            if(Math.abs(left - right) > 1){
+                return -1
+            }
+
+            return Math.max(left,right) + 1
+        }
+
+        return check(root) !== -1
+    }
+
     sumOf(root=this.root.right){
         if(!root){
             return 0;
@@ -146,6 +166,7 @@ tree.insert(15)
 tree.insert(25)
 tree.insert(8)
 
-console.log("sum of all element in left side: ",tree.sumOf())
+
+console.log("is balanced tree: ",tree.isBalanced())
 
 tree.bfs() // 10 4 20 8 15 25
