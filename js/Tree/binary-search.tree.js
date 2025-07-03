@@ -70,6 +70,15 @@ class Tree{
     }
 
 
+    sumOf(root=this.root.right){
+        if(!root){
+            return 0;
+        }
+
+        return root.data + this.sumOf(root.left) + this.sumOf(root.right);
+    }
+
+
     _deleteNode(data,root){
         if(!root){
             return null;
@@ -137,6 +146,6 @@ tree.insert(15)
 tree.insert(25)
 tree.insert(8)
 
-tree.second()
+console.log("sum of all element in left side: ",tree.sumOf())
 
 tree.bfs() // 10 4 20 8 15 25
