@@ -45,6 +45,30 @@ class Tree{
         return this._deleteNode(data,this.root)
     }
 
+    second(root=this.root){
+        let count = 0;
+        let result = null;
+
+        function finder(root){
+            if(!root || count>2){
+                return null;
+            }
+            finder(root.left)
+
+            count++;
+            if(count === 2){
+                result = root.data;
+                return
+            }
+
+            finder(root.right);
+        }
+
+        finder(root)
+        console.log("second smallest is: ",result)
+        return result;
+    }
+
 
     _deleteNode(data,root){
         if(!root){
@@ -113,6 +137,6 @@ tree.insert(15)
 tree.insert(25)
 tree.insert(8)
 
-tree.delete(8)
+tree.second()
 
 tree.bfs() // 10 4 20 8 15 25
