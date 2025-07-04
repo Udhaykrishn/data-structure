@@ -31,6 +31,27 @@ class Tree:
                     return
                 current = current.right
 
+
+    def isBalanced(self):
+        def checker(node):
+            if not node:
+                return 0
+            
+            left = checker(node.left)
+
+            if left == -1:return -1
+
+            right = checker(node.right)
+
+            if right == -1: return -1
+
+            if abs(left - right) > 1: return -1
+
+
+            return max(left,right) + 1
+        
+        return checker(self.root) != -1
+
     def min(self,root):
         if not root.left:
             return root.data
@@ -65,5 +86,6 @@ tree.insert(8)
 
 print(tree.min(tree.root.left))
 
+print(tree.isBalanced())
 
 tree.bfs()
