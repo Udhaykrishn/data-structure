@@ -51,6 +51,31 @@ class Tree:
             return max(left,right) + 1
         
         return checker(self.root) != -1
+    
+    
+    
+    def second(self):
+        result = None
+        counter = 0
+
+        def checker(root):
+            nonlocal result,counter
+            if not root or counter >= 2:
+                return None
+            
+            checker(root=root.left)
+
+            counter += 1
+            if counter == 2:
+                result = root.data
+                return  
+            
+            checker(root=root.right)
+
+        checker(self.root)
+        return result
+    
+
 
     def min(self,root):
         if not root.left:
@@ -84,7 +109,7 @@ tree.insert(15)
 tree.insert(5)
 tree.insert(8)
 
-print(tree.min(tree.root.left))
+print(tree.second())
 
 print(tree.isBalanced())
 
