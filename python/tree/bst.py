@@ -30,6 +30,12 @@ class Tree:
                     current.right = node
                     return
                 current = current.right
+
+    def min(self,root):
+        if not root.left:
+            return root.data
+        else:
+            return min(root.left) 
         
     
     def bfs(self):
@@ -56,6 +62,8 @@ tree.insert(20)
 tree.insert(15)
 tree.insert(5)
 tree.insert(8)
+
+print(tree.min(tree.root.left))
 
 
 tree.bfs()
