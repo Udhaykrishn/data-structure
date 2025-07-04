@@ -9,7 +9,7 @@ class Tree:
         self.root = None
 
     
-    def insert(self,data,root):
+    def insert(self,data):
         node = Node(data)
 
         if not self.root:
@@ -46,4 +46,16 @@ class Tree:
             if node.right:
                 queue.append(node.right)
 
-        
+
+
+
+tree = Tree()
+
+tree.insert(10)
+tree.insert(20)
+tree.insert(15)
+tree.insert(5)
+tree.insert(8)
+
+
+tree.bfs()
